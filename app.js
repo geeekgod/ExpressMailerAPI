@@ -1,5 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
+
 const port = process.env.PORT || 3000;
 
 const app = express();
@@ -14,4 +17,9 @@ app.listen(port, () => {
 
 app.get("/", (req, res) => {
   res.json({ name: "Express Mailer !!" });
+});
+
+app.get("/send-mail", (req, res) => {
+  res.json({ email: process.env.EMAIL_USERNAME });
+  
 });
