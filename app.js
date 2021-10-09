@@ -19,7 +19,18 @@ app.get("/", (req, res) => {
   res.json({ name: "Express Mailer !!" });
 });
 
-app.get("/send-mail", (req, res) => {
-  res.json({ email: process.env.EMAIL_USERNAME });
-  
+app.post("/send-mail", (req, res) => {
+  // Transporter for mail
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.EMAIL_USERNAME, // enter the sender email address in .env file
+      pass: process.env.EMAIL_PASSWORD, // enter the sender email password in .env file
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+  });
 });
