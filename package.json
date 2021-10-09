@@ -1,8 +1,12 @@
 {
-  "name": "ExpressMailerApi",
+  "name": "express-mailer-api",
   "version": "1.0.0",
   "description": "Mailer Api build in Express & Node Js with a package called NodeMailer.",
   "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "nodemon-start": "nodemon app.js"
+  },
   "author": "Rishabh Singh",
   "license": "MIT",
   "dependencies": {
