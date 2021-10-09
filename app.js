@@ -48,11 +48,22 @@ app.post("/send-mail", (req, res) => {
     },
   });
 
-  // setup email data 
+  // setup email data
   let mailOptions = {
     from: '"New Mail from Website" <yoursendermail@mail.com>', // sender address
     to: "ris8645208@gmail.com", // list of receivers
     subject: `${req.body.subject}`, // Subject line
     html: output, // html body
   };
+
+  // send mail
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+    res.json({ msg: "Email has been sent" });
+  });
 });
