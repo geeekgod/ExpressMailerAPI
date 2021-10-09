@@ -4,5 +4,11 @@
   "description": "Mailer Api build in Express & Node Js with a package called NodeMailer.",
   "main": "app.js",
   "author": "Rishabh Singh",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.6.5",
+    "nodemon": "^2.0.13"
+  }
 }
