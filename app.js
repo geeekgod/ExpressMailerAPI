@@ -20,6 +20,20 @@ app.get("/", (req, res) => {
 });
 
 app.post("/send-mail", (req, res) => {
+  const output = `
+    <p>You have a new Mail by the Website</p>
+    <p>${req.body.subject}</p>
+    <h3>Contact Details</h3>
+    <pre>
+         Name: ${req.body.name}
+         Email: ${req.body.email}
+    </pre>
+    <h3>Subject</h3>
+    <p>${req.body.subject}</p>
+    <h3>Message</h3>
+    <p>${req.body.message}</p>
+  `;
+
   // Transporter for mail
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
